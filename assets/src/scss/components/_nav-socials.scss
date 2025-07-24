@@ -1,0 +1,41 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+/* ------------------------------------------------------------ *\
+	Nav Socials
+\* ------------------------------------------------------------ */
+
+.nav-socials {
+	ul {
+		list-style-type: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: -10px;
+	}
+
+	li {
+		padding: 10px;
+	}
+
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 4px;
+
+		transition: opacity $trs;
+
+		&:focus,
+		&:active,
+		&:hover {
+			opacity: 0.65;
+		}
+	}
+
+	img,
+	svg {
+		display: block;
+		width: 18px;
+	}
+}

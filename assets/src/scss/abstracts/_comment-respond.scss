@@ -1,0 +1,78 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+/* ------------------------------------------------------------ *\
+	Comment Respond
+\* ------------------------------------------------------------ */
+
+.comment-respond {
+	width: 100%;
+	padding-top: 30px;
+	border-top: 1px solid #363636;
+
+	h3 {
+		position: relative;
+	}
+
+	small {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	label {
+		display: block;
+		padding-bottom: 4px;
+	}
+
+	input[type='text'],
+	textarea {
+		display: block;
+		width: 100%;
+		padding: 10px;
+		border: 1px solid #ccc;
+		background: #f7f7f7;
+	}
+
+	textarea {
+		color: #000;
+		height: 100px;
+	}
+
+	input[type='text']:focus {
+		background-color: #fff;
+	}
+
+	input[type='text']::-webkit-input-placeholder,
+	input[type='text']::-moz-placeholder,
+	input[type='text']:-ms-input-placeholder,
+	input[type='text']::placeholder {
+		color: #777;
+	}
+
+	.required {
+		color: #e40000;
+	}
+	.comment-notes {
+		padding-top: 15px;
+	}
+
+	.form-submit input {
+		color: $white;
+		padding: 15px 20px;
+		font-size: $font-size-base;
+		font-family: $font;
+		font-weight: bold;
+		background-color: $base;
+		text-decoration: none;
+		border: 1px solid $base;
+		border-radius: 25px;
+		min-width: 152px;
+		letter-spacing: 0.04em;
+
+		&:hover {
+			background-color: $white;
+			color: $base;
+		}
+	}
+}

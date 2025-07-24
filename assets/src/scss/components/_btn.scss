@@ -1,0 +1,17 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+/* ------------------------------------------------------------ *\
+  Buttons
+\* ------------------------------------------------------------ */
+
+[class^='btn'] {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer;
+	text-decoration: none;
+	appearance: none;
+	border-radius: 0;
+	border: 0;
+}

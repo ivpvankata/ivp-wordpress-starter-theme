@@ -1,0 +1,16 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+/* ------------------------------------------------------------ *\
+  Admin Bar
+\* ------------------------------------------------------------ */
+
+.admin-bar {
+	.header {
+		top: 0;
+
+		@media (max-width: 782px) {
+			top: 0;
+		}
+	}
+}

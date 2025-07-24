@@ -1,0 +1,132 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+/* ------------------------------------------------------------ *\
+    Base
+\* ------------------------------------------------------------ */
+
+body {
+	min-width: 320px;
+	background: $white;
+	font-family: $font;
+	font-weight: $font-weight-base;
+	font-size: $font-size-base;
+	line-height: $line-height-base;
+	color: $base;
+}
+
+a:not([class]) {
+	color: inherit;
+	text-decoration: underline;
+	cursor: pointer;
+	transition: color $trs;
+
+	&:hover {
+		@include breakpoint-up(tablet) {
+			text-decoration: none;
+		}
+	}
+
+	&[href^="mailto"],
+	&[href^="tel"] {
+		text-decoration: none;
+	}
+}
+
+a,
+button,
+input[type="submit"],
+input[type="button"] {
+	transition: color $trs, background-color $trs, opacity $trs, transform $trs,
+		box-shadow $trs, text-shadow $trs, border $trs, letter-spacing $trs;
+}
+
+.h1,
+h1,
+.h2,
+h2,
+.h3,
+h3,
+.h4,
+h4,
+.h5,
+h5,
+.h6,
+h6,
+.h6-sm {
+	margin-bottom: 20px;
+	line-height: 1.15;
+	font-family: $font;
+	font-weight: 600;
+}
+
+.h1,
+h1 {
+	font-size: 50px;
+
+	@include breakpoint-down(small-desktop) {
+		font-size: 40px;
+	}
+}
+
+.h2,
+h2 {
+	font-size: 36px;
+
+	@include breakpoint-down(small-desktop) {
+		font-size: 30px;
+	}
+
+	@include breakpoint-down(mobile) {
+		font-size: 26px;
+	}
+}
+
+.h3,
+h3 {
+	font-size: 26px;
+
+	@include breakpoint-down(small-desktop) {
+		font-size: 25px;
+	}
+}
+
+.h4,
+h4 {
+	font-size: 24px;
+}
+
+.h5,
+h5 {
+	font-size: 20px;
+}
+
+.h6,
+h6 {
+	font-size: $font-size-base;
+}
+
+p,
+ul,
+ol,
+dl,
+hr,
+table,
+blockquote {
+	margin-bottom: #{$line-height-base}em;
+}
+
+h1:last-child,
+h2:last-child,
+h3:last-child,
+h4:last-child,
+h5:last-child,
+h6:last-child,
+p:last-child,
+ul:last-child,
+ol:last-child,
+dl:last-child,
+table:last-child,
+blockquote:last-child {
+	margin-bottom: 0;
+}

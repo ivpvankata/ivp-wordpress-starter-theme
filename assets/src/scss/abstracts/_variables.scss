@@ -1,0 +1,26 @@
+$font-size-base: 18px;
+$font-weight-base: 400;
+$line-height-base: 1.4;
+
+$font: Arial, sans-serif;
+
+$trs: 0.4s;
+
+$hull-max-width: 1138px;
+$hull-gutter: 30px;
+
+$black: #000;
+$white: #fff;
+$base: #0b1b30;
+
+$responsive-ios: 812px;
+
+$breakpoints: (
+	mobile-small: 374px,
+	mobile-medium: 575px,
+	mobile: 767px,
+	admin-bar: 782px,
+	tablet: 1023px,
+	small-desktop: 1280px,
+	large-desktop: 1430px,
+);

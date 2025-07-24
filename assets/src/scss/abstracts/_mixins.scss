@@ -1,0 +1,132 @@
+@use './variables' as vars;
+@use 'sass:map';
+
+@mixin clearfix {
+	content: '';
+	line-height: 0;
+	display: table;
+	clear: both;
+}
+
+// Flex min-height fix IE
+
+@mixin clearFlex {
+	&:after {
+		content: '';
+		min-height: inherit;
+		font-size: 0;
+	}
+}
+
+// Show / hide
+
+@mixin hide {
+	opacity: 0;
+	visibility: hidden;
+	transition:
+		opacity $trs,
+		visibility $trs;
+}
+
+@mixin show {
+	opacity: 1;
+	visibility: visible;
+}
+
+// Backgrounds
+
+@mixin imageCover {
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+@mixin imageContain {
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+@mixin noText {
+	font-size: 0;
+	line-height: 0;
+	text-indent: -4004px;
+}
+
+@mixin elFW {
+	position: absolute;
+	left: 50%;
+	top: 0;
+	width: 100vw;
+	height: 100%;
+	margin-left: -50vw;
+	z-index: 1;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+/* ------------------------------------------------------------ *\
+	Breakpoint mixins
+\* ------------------------------------------------------------ */
+
+@function breakpoint-next($name, $bp-map: vars.$breakpoints, $names: map.keys(vars.$breakpoints)) {
+	$n: index($names, $name);
+	@return if($n != null and $n < length($names), nth($names, $n + 1), null);
+}
+
+@function breakpoint-min($name, $bp-map: vars.$breakpoints) {
+	$val: map.get($bp-map, $name);
+	@return if($val != null, $val + 0.02, null);
+}
+
+@function breakpoint-max($name, $bp-map: vars.$breakpoints) {
+	$val: map.get($bp-map, $name);
+	@return if($val != null, $val, null);
+}
+
+@mixin breakpoint-up($name) {
+	$min: breakpoint-min($name);
+	@if $min != null {
+		@media (min-width: #{$min}) {
+			@content;
+		}
+	}
+}
+
+@mixin breakpoint-down($name) {
+	$max: breakpoint-max($name);
+	@if $max != null {
+		@if $max == 767px {
+			@media (max-width: #{$max}), screen and (max-width: #{vars.$responsive-ios}) and (orientation: landscape) {
+				@content;
+			}
+		} @else {
+			@media (max-width: #{$max}) {
+				@content;
+			}
+		}
+	}
+}
+
+@mixin breakpoint-between($lower, $upper) {
+	$min: breakpoint-min($lower);
+	$max: breakpoint-max($upper);
+	@if $min != null and $max != null {
+		@media (min-width: #{$min}) and (max-width: #{$max}) {
+			@content;
+		}
+	}
+}
+
+/* example usage*/
+
+// @include breakpoint-up(mobile) {
+//  @content
+// }
+// @include breakpoint-up(mobile) {
+//  @content
+// }
+// // @include breakpoint-between(mobile,tablet) {
+//  @content
+// }

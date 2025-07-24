@@ -1,0 +1,31 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+/* ------------------------------------------------------------ *\
+  Hull
+\* ------------------------------------------------------------ */
+
+.hull {
+  max-width: calc(#{$hull-max-width} + #{$hull-gutter} * 2);
+  padding-left: $hull-gutter;
+  padding-right: $hull-gutter;
+  margin: auto;
+  width: 100%;
+}
+
+/* Hull Fluid */
+
+.hull--fluid {
+  max-width: none;
+  padding: 0;
+}
+
+/* ------------------------------------------------------------ *\
+  Hull Full Width
+\* ------------------------------------------------------------ */
+
+.hull--fw {
+  max-width: none;
+  padding-left: $hull-gutter;
+  padding-right: $hull-gutter;
+}
